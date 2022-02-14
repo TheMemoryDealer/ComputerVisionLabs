@@ -20,7 +20,7 @@ T = procrustes_lecture_fillGaps(X,Y,w); %procrustes algorithm as described in th
 M = [T(1), -T(2); T(2), T(1)];
 t = [T(3); T(4)];
 
-Z_l = (M*Y' + t)'; %complete this line of code, you need to use T in order to transform Y to Z_l
+Z_l = (M'*T'*Y + t)'; %complete this line of code, you need to use T in order to transform Y to Z_l
 
 figure
 plot(X(:,1),X(:,2),'rx',Y(:,1),Y(:,2),'b.',Z(:,1),Z(:,2),'bx',Z_l(:,1),Z_l(:,2),'gx');

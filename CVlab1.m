@@ -1,36 +1,42 @@
-%%1.1
-plot(A);
-hold on
-plot(D65);
-xlabel('Wavelength')
-ylabel('Power')
-%% 1.2
+%%1.1 • Plot the 2 illuminants (vectors A and D65) against wavelength, and overlay them
+% on the same figure, label the axes (wavelength vs. power).
+% plot(WAV, A);
+% hold on
+% plot(WAV, D65);
+% xlabel('Wavelength')
+% ylabel('Power')
+%% 1.2 Plot two different reflectance spectra (two columns of the matrix S) against wavelength,
+% and overlay them on the same figure. Label the axes.
 x=S(:,[1,2]);
 plot(x);
 xlabel('Wavelength')
 ylabel('Power')
-%% 1.3
-figure; 
-plot(x.*A,'g');
+%% 1.3 Multiply both these reflectance spectra by illuminant A to create two “coloursignals”.
+% Plot them both againgst wavelength, on the same figure as one another,
+% and label the axes. Do the same thing for illuminant D65;
+% figure; 
+plot(WAV, x.*A,'g');
 hold on;
-plot(x.*D65,'r--');
-%% 1.4
-plot(R);
-hold on
-plot(CMF);
+plot(WAV, x.*D65,'r--');
+% zzz2 = x.*A;
+%% 1.4 Plot the colour matching functions and camera sensitivities on the same plot as one
+% another (again plotting them against wavelength). Label the axes.
+% plot(R);
+% hold on
+% plot(CMF);
 %% FINAL 1
-subplot(2,2,1)
-plot(A);
-hold on
-plot(D65);
-subplot(2,2,2)
-plot(x);
-subplot(2,2,3)
-plot(x.*A,'g');
-hold on;
-plot(x.*D65,'r--');
-subplot(2,2,4)
-plot(CMF);
+% subplot(2,2,1)
+% plot(A);
+% hold on
+% plot(D65);
+% subplot(2,2,2)
+% plot(x);
+% subplot(2,2,3)
+% plot(x.*A,'g');
+% hold on;
+% plot(x.*D65,'r--');
+% subplot(2,2,4)
+% plot(CMF);
 %% 2.1
 z=S.*A;
 s1 = zeros(size(z,2),3);
